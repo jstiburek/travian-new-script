@@ -37,14 +37,13 @@
 									<div class="transformWrapper">
 										<div class="worldGroup">
 <?php
-$db = mysqli_connect("localhost", "root", "", "travian");
+$db = mysqli_connect("db", "root", "root", "travian");
 $count_users = mysqli_num_rows($db->query("SELECT * FROM `users` WHERE `id` > 4"));
 $count_online = mysqli_num_rows($db->query("SELECT * FROM `users` WHERE " . time() . "-`timestamp` < (60*60) AND tribe!=5 AND tribe!=0"));
 $t = strtotime('12.09.2020 00:00:00');
 if($t > time()){$count_online = 0;}
 $timeserver = round((time() - $t) / 86400);
 $da = mysqli_fetch_array($db->query("SELECT * FROM `config` WHERE 1"));
-$winn = $da['winmoment'];
 ?>
 											<div class="world default" role="none" data-url="games/login.php">
 												<h2>Server &times;X1,000</h2>
@@ -52,7 +51,6 @@ $winn = $da['winmoment'];
 												<p class="spacer"></p>
 												<div class="serverTime" title="Server age">
 													<svg class="clock" viewBox="0 0 74 74"><circle cx="37" cy="37" r="33"></circle><path d="M33.67 13v27.33h26"></path></svg>
-													<span><?php if($t <= time()){if($winn == 0){echo $timeserver.' days ago';}else{echo 'Server finished';}}else{echo 'Start '.date("d.m.Y G:i:s", $t);} ?></span>
 												</div>
 											</div>
 											
