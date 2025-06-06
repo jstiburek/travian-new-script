@@ -7,9 +7,9 @@ error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE);
 //////////////////////////////////
 //   ****  SQL SETTINGS  ****   //
 //////////////////////////////////
-define("SQL_SERVER", "localhost");
+define("SQL_SERVER", "db");
 define("SQL_USER", "root");
-define("SQL_PASS", "");
+define("SQL_PASS", "root");
 define("SQL_DB", "travian");
 
 
